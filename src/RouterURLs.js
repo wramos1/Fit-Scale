@@ -10,7 +10,7 @@ class RouterURLs extends Component {
     render() {
         return (
             <Routes>
-                <Route path='/' element={<BMI />} />
+                <Route path={process.env.PUBLIC_URL} element={<BMI />} />
                 <Route path='/ideal-body-weight' element={<IdealBodyWeight />} />
                 <Route path='/body-fat' element={<BodyFat />} />
                 <Route path='/daily-energy-expenditure' element={<TDEE />} />

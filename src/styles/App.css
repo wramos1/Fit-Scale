@@ -1,0 +1,229 @@
+body {
+    margin: 0;
+    background-color: rgb(236, 248, 5);
+    overflow-x: hidden;
+    font-family: 'Play', cursive;
+}
+
+#overallContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+}
+
+#title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5em;
+    transform: skew(-25deg);
+    letter-spacing: 25px;
+    font-weight: 50;
+    font-family: 'Contrail One', cursive;
+    margin: 0;
+    margin-top: 1%;
+}
+
+#subTitle {
+    width: 100%;
+    text-align: center;
+    position: relative;
+    bottom: 0;
+    font-size: 2em;
+    transform: skew(-25deg);
+    letter-spacing: 25px;
+    font-weight: 50;
+    font-family: 'Contrail One', cursive;
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h2 {
+    width: 100%;
+    text-align: center;
+    position: relative;
+    bottom: 0;
+}
+
+h4 {
+    font-size: 1.8vmin;
+    font-family: 'Contrail One', cursive;
+    transform: skew(-25deg);
+    letter-spacing: 3px;
+}
+
+#mainContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-right: 35%;
+    margin-left: 35%;
+}
+
+#scaleContent {
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 247, 0);
+    width: 100%;
+    margin: 0 auto;
+    height: auto;
+    padding: 0 0 5% 0;
+}
+
+.titleAndSummaries {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.titleAndSummaries h3 {
+    display: inline;
+    color: aqua;
+    border-bottom: 2px solid yellow;
+    font-family: 'Contrail One', cursive;
+    transform: skew(-25deg);
+    letter-spacing: 1px;
+}
+
+.titleAndSummaries p {
+    letter-spacing: 1.5px;
+}
+
+.infoForms {
+    display: flex;
+    align-content: space-between;
+    flex-direction: column;
+    text-align: center;
+}
+
+.infoForms div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+input {
+    padding: 2px 0.1vw 0 0;
+    text-align: left;
+    background-color: yellow;
+    font-family: 'Play', cursive;
+    font-weight: 900;
+}
+
+input::placeholder {
+    font-family: 'Play', cursive;
+}
+
+input:focus {
+    outline: 1px solid aqua;
+    background-color: black;
+    color: yellow;
+}
+
+select {
+    background-color: yellow;
+    font-family: 'Play', cursive;
+}
+
+select:focus {
+    outline: 1px solid aqua;
+}
+
+.hide {
+    display: none;
+}
+
+.results {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0 auto;
+    color: aqua;
+    margin-top: -5px;
+}
+
+.results h1 {
+    font-family: 'Contrail One', cursive;
+    transform: skew(-5deg);
+    letter-spacing: 5px;
+}
+
+.results button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1vmax auto 0 auto;
+    background-color: black;
+    color: yellow;
+    border: 5px solid aqua;
+    padding: 5px 8px;
+    border-radius: 15px;
+    transition: all 1.5s;
+}
+
+#tdeeCaloricMeasures {
+    display: flex;
+    flex-direction: row;
+}
+
+#tdeeCaloricMeasures div {
+    display: inline-block;
+    text-align: center;
+}
+
+#tdeeCaloricMeasures h2 {
+    display: inline;
+    border-bottom: 2px solid yellow;
+}
+
+.show {
+    display: flex;
+}
+
+button {
+    margin: 1.5vmax 0;
+    background-color: black;
+    color: yellow;
+    border: 1px solid yellow;
+    transition: all 1.5s;
+    cursor: pointer;
+}
+
+.activated {
+    border: 5px solid aqua;
+    padding: 5px 8px;
+    border-radius: 15px;
+    font-size: 1.1em;
+    font-family: 'Contrail One', cursive;
+    animation: 1 activated 1.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+
+}
+
+@keyframes activated {
+    0% {
+        letter-spacing: normal;
+    }
+
+    50% {
+        transform: skew(-5deg);
+        letter-spacing: 2px;
+        padding: 6px 9px;
+        font-size: 1.15em;
+    }
+
+    100% {
+        padding: 5px 8px;
+        border-radius: 15px;
+        font-size: 1.1em;
+    }
+}

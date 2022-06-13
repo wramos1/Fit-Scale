@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import { BrowserRouter } from "react-router-dom";
+import Navbar from "./Navbar";
+import RouterURLs from "./RouterURLs";
+import './styles/App.css'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+    render() {
+        return (
+            <div id='overallContent'>
+                <BrowserRouter>
+                    <h1 id='title'>Fit Scale</h1>
+                    <div id='mainContent'>
+                        <Navbar />
+                        <div id='scaleContent'>
+                            <RouterURLs />
+                        </div>
+                    </div>
+                    <h2 id='subTitle'>Reach Your Fitness Goals</h2>
+                </BrowserRouter>
+            </div>
+        )
+    }
 }
 
-export default App;
+export default App; 

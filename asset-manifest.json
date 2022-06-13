@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Fit-Scale/static/css/main.761b0236.css",
+    "main.js": "/Fit-Scale/static/js/main.6d0ad062.js",
+    "index.html": "/Fit-Scale/index.html",
+    "main.761b0236.css.map": "/Fit-Scale/static/css/main.761b0236.css.map",
+    "main.6d0ad062.js.map": "/Fit-Scale/static/js/main.6d0ad062.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.761b0236.css",
+    "static/js/main.6d0ad062.js"
+  ]
+}

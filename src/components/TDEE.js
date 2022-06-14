@@ -15,46 +15,45 @@ class TDEE extends Component {
     componentDidUpdate() {
         this.buttonActivator();
         this.ageFormulator();
-    }
+    };
 
     buttonActivator() {
         if (this.state.weight.length !== 0 && this.state.height.length !== 0) {
-            document.querySelector('button').classList.add('activated')
+            document.querySelector('button').classList.add('activated');
         } else if (this.state.weight.length === 0 || this.state.height.length === 0) {
-            document.querySelector('button').classList.remove('activated')
+            document.querySelector('button').classList.remove('activated');
         }
-    }
+    };
 
     ageFormulator() {
         const selectAge = document.querySelector('#ageSelector');
         for (let i = 0; i < 100; i++) {
             const age = document.createElement('option');
             age.text = [i];
-            age.setAttribute('value', [i])
+            age.setAttribute('value', [i]);
             selectAge.appendChild(age);
         }
-    }
+    };
 
     onFormSubmit = async (e) => {
         e.preventDefault();
         await this.getMeasurements();
         this.calculateTdee();
-    }
+    };
 
     getMeasurements() {
         const weightType = document.querySelector('#weightSelector').value;
         const heightType = document.querySelector('#heightSelector').value;
 
-
         const { weight, height } = this.state
 
         if (weightType === 'lb') {
-            this.setState({ weight: weight / 2.2 })
+            this.setState({ weight: weight / 2.2 });
         }
         if (heightType === 'in') {
-            this.setState({ height: height * 2.54 })
+            this.setState({ height: height * 2.54 });
         }
-    }
+    };
 
 
     calculateTdee = async () => {
@@ -68,65 +67,72 @@ class TDEE extends Component {
             }
         });
 
-        const { tdee } = response.data.info
-        this.setState({ tdee, hasSubmitted: true })
+        const { tdee } = response.data.info;
+        this.setState({ tdee, hasSubmitted: true });
 
         this.displayTdee();
-    }
+    };
 
     restartToggle = () => {
-        const form = document.querySelector('.infoForms')
-        const results = document.querySelector('.results')
-
+        const form = document.querySelector('.infoForms');
+        const results = document.querySelector('.results');
         const weightType = document.querySelector('#weightSelector').value;
         const heightType = document.querySelector('#heightSelector').value;
+
         const { weight, height } = this.state
 
         if (weightType === 'lb') {
-            this.setState({ weight: weight * 2.2 })
+            this.setState({ weight: weight * 2.2 });
         }
         if (heightType === 'in') {
-            this.setState({ height: height / 2.54 })
+            this.setState({ height: height / 2.54 });
         }
 
-        this.setState({ hasSubmitted: false })
+        this.setState({ hasSubmitted: false });
 
-        form.classList.toggle('hide')
-        results.classList.toggle('show')
-    }
+        form.classList.toggle('hide');
+        results.classList.toggle('show');
+    };
 
     displayTdee = () => {
-        const form = document.querySelector('.infoForms')
-        const results = document.querySelector('.results')
+        const form = document.querySelector('.infoForms');
+        const results = document.querySelector('.results');
 
         if (this.state.hasSubmitted === false) {
-            return null
+            return null;
         }
 
         form.classList.toggle('hide');
         results.classList.toggle('show');
+
         return (
-            <div id='tdeeResult'>
-
-
+            <div>
                 <h1>{`TDEE: ${Math.ceil(this.state.tdee)} Calories`}</h1>
 
                 <div id='tdeeCaloricMeasures'>
                     <div>
+
                         <h2>Caloric Surpus</h2>
-                        <p>You would need to eat around {`${Math.ceil(this.state.tdee)}`} - {`${Math.ceil(this.state.tdee) + 200} Calories`} to gain weight</p>
+                        <p>You would need to eat around {`${Math.ceil(this.state.tdee)}`} -
+                            {`${Math.ceil(this.state.tdee) + 200} Calories`} to gain weight.
+                        </p>
+
                     </div>
+
                     <div>
+
                         <h2>Caloric Deficit</h2>
-                        <p>You would need to eat around {`${Math.ceil(this.state.tdee) - 200}`} - {`${Math.ceil(this.state.tdee)} Calories`} to lose weight </p>
+                        <p>You would need to eat around {`${Math.ceil(this.state.tdee) - 200}`} -
+                            {`${Math.ceil(this.state.tdee)} Calories`} to lose weight.
+                        </p>
+
                     </div>
                 </div>
 
                 <button className='activated' onClick={this.restartToggle}>Calculate Again</button>
             </div>
         )
-
-    }
+    };
 
 
 
@@ -135,17 +141,17 @@ class TDEE extends Component {
             <div>
                 <div className='titleAndSummaries'>
                     <h3>Total Daily Energy Expenditure</h3>
-                    <p>TDEE is an estimate of how many calories you burn through your bodily functions and physical activity. Calculating your TDEE not only gives you an idea of if you are moving around enough, but it also could impact your weight management plans, too, because it creates an estimate of your current calorie burn.
+                    <p>TDEE is an estimate of how many calories you burn through your bodily functions and physical activity.
+                        Calculating your TDEE not only gives you an idea of if you are moving around enough,
+                        but it also could impact your weight management plans, too, because it creates an estimate of your current calorie burn.
                     </p>
                 </div>
 
                 <div className='infoForms'>
-
                     <form onSubmit={this.onFormSubmit}>
 
                         <h4>Weight</h4>
                         <div>
-
                             <input
                                 type='text'
                                 placeholder='Enter Weight'
@@ -171,7 +177,6 @@ class TDEE extends Component {
                                 <option value='cm'>Cm</option>
                                 <option value='in'>In</option>
                             </select>
-
                         </div>
 
                         <h4>Gender & Age</h4>
@@ -197,7 +202,6 @@ class TDEE extends Component {
                             </select>
                         </div>
 
-
                         <button type='submit' onSubmit={this.onFormSubmit}>Calculate</button>
                     </form>
 
@@ -209,7 +213,7 @@ class TDEE extends Component {
 
             </div>
         )
-    }
-}
+    };
+};
 
 export default TDEE;

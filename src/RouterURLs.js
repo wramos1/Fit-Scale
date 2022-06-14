@@ -7,6 +7,7 @@ import BodyFat from "./components/BodyFat";
 import TDEE from "./components/TDEE";
 
 class RouterURLs extends Component {
+
     render() {
         return (
             <Routes>
@@ -16,8 +17,8 @@ class RouterURLs extends Component {
                 <Route path='/daily-energy-expenditure' element={<TDEE />} />
             </Routes>
         )
-    }
-}
+    };
+};
 
 
 

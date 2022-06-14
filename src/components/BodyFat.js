@@ -19,42 +19,41 @@ class BodyFat extends Component {
 
     buttonActivator() {
         if (this.state.weight.length !== 0 && this.state.height.length !== 0) {
-            document.querySelector('button').classList.add('activated')
+            document.querySelector('button').classList.add('activated');
         } else if (this.state.weight.length === 0 || this.state.height.length === 0) {
-            document.querySelector('button').classList.remove('activated')
+            document.querySelector('button').classList.remove('activated');
         }
-    }
+    };
 
     ageFormulator() {
         const selectAge = document.querySelector('#ageSelector');
         for (let i = 0; i < 100; i++) {
             const age = document.createElement('option');
             age.text = [i];
-            age.setAttribute('value', [i])
+            age.setAttribute('value', [i]);
             selectAge.appendChild(age);
-        }
-    }
+        };
+    };
 
     onFormSubmit = async (e) => {
         e.preventDefault();
         await this.getMeasurements();
         this.calculateBodyFat();
-    }
+    };
 
     getMeasurements() {
         const weightType = document.querySelector('#weightSelector').value;
         const heightType = document.querySelector('#heightSelector').value;
 
-
         const { weight, height } = this.state
 
         if (weightType === 'lb') {
-            this.setState({ weight: weight / 2.2 })
+            this.setState({ weight: weight / 2.2 });
         }
         if (heightType === 'in') {
-            this.setState({ height: height * 2.54 })
+            this.setState({ height: height * 2.54 });
         }
-    }
+    };
 
 
     calculateBodyFat = async () => {
@@ -66,44 +65,48 @@ class BodyFat extends Component {
                 gender: this.state.gender
             }
         });
-        const { bfp, description } = response.data.info
-        this.setState({ bfp, health: description, hasSubmitted: true })
+        const { bfp, description } = response.data.info;
+
+        this.setState({
+            bfp,
+            health: description,
+            hasSubmitted: true
+        })
 
         this.displayBodyFat();
-    }
+    };
 
     restartToggle = () => {
-        const form = document.querySelector('.infoForms')
-        const results = document.querySelector('.results')
-
+        const form = document.querySelector('.infoForms');
+        const results = document.querySelector('.results');
         const weightType = document.querySelector('#weightSelector').value;
         const heightType = document.querySelector('#heightSelector').value;
+
         const { weight, height } = this.state
 
         if (weightType === 'lb') {
-            this.setState({ weight: weight * 2.2 })
+            this.setState({ weight: weight * 2.2 });
         }
         if (heightType === 'in') {
-            this.setState({ height: height / 2.54 })
+            this.setState({ height: height / 2.54 });
         }
 
-        this.setState({ hasSubmitted: false })
+        this.setState({ hasSubmitted: false });
 
-        form.classList.toggle('hide')
-        results.classList.toggle('show')
-    }
+        form.classList.toggle('hide');
+        results.classList.toggle('show');
+    };
 
     displayBodyFat = () => {
-        const form = document.querySelector('.infoForms')
-        const results = document.querySelector('.results')
+        const form = document.querySelector('.infoForms');
+        const results = document.querySelector('.results');
 
         if (this.state.hasSubmitted === false) {
-            return null
+            return null;
         }
 
-        form.classList.toggle('hide')
-        results.classList.toggle('show')
-        console.log(this.state.health)
+        form.classList.toggle('hide');
+        results.classList.toggle('show');
 
         return (
             <div>
@@ -113,8 +116,7 @@ class BodyFat extends Component {
                 <button className='activated' onClick={this.restartToggle}>Calculate Again</button>
             </div>
         )
-
-    }
+    };
 
 
 
@@ -130,18 +132,17 @@ class BodyFat extends Component {
                 </div>
 
                 <div className='infoForms'>
-
                     <form onSubmit={this.onFormSubmit}>
 
                         <h4>Weight</h4>
                         <div>
-
                             <input
                                 type='text'
                                 placeholder='Enter Weight'
                                 onChange={e => this.setState({ weight: e.target.value })}
                                 required
                             />
+
                             <select id='weightSelector'>
                                 <option value='kg'>Kg</option>
                                 <option value='lb'>Lbs</option>
@@ -161,7 +162,6 @@ class BodyFat extends Component {
                                 <option value='cm'>Cm</option>
                                 <option value='in'>In</option>
                             </select>
-
                         </div>
 
                         <h4>Gender & Age</h4>
@@ -176,7 +176,6 @@ class BodyFat extends Component {
                             </select>
                         </div>
 
-
                         <button type='submit' onSubmit={this.onFormSubmit}>Calculate</button>
                     </form>
 
@@ -188,7 +187,7 @@ class BodyFat extends Component {
 
             </div>
         )
-    }
-}
+    };
+};
 
 export default BodyFat;

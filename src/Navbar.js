@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+
 import './styles/Navbar.css'
 
 class Navbar extends Component {
@@ -7,20 +8,25 @@ class Navbar extends Component {
     tabSelecting = () => {
         const tabs = document.getElementsByClassName('tab');
         tabs[0].classList.add('active');
+
         for (let i = 0; i < tabs.length; i++) {
+
             tabs[i].addEventListener('click', () => {
                 const previousSelects = document.getElementsByClassName('active');
+
                 if (previousSelects.length > 0) {
-                    previousSelects[0].className = previousSelects[0].className.replace('active', '')
+                    previousSelects[0].className = previousSelects[0].className.replace('active', '');
                 }
-                tabs[i].classList.add('active')
+
+                tabs[i].classList.add('active');
+
             })
-        }
-    }
+        };
+    };
 
     componentDidMount() {
         this.tabSelecting();
-    }
+    };
 
     render() {
         return (
@@ -43,8 +49,9 @@ class Navbar extends Component {
                 </Link>
 
             </div>
+
         )
-    }
-}
+    };
+};
 
 export default Navbar;

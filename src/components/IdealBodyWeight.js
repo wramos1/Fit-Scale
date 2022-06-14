@@ -20,34 +20,34 @@ class IdealBodyWeight extends Component {
 
     buttonActivator() {
         if (this.state.weight.length !== 0 && this.state.height.length !== 0) {
-            document.querySelector('button').classList.add('activated')
+            document.querySelector('button').classList.add('activated');
         } else if (this.state.weight.length === 0 || this.state.height.length === 0) {
-            document.querySelector('button').classList.remove('activated')
+            document.querySelector('button').classList.remove('activated');
         }
-    }
+    };
 
     onFormSubmit = async (e) => {
         e.preventDefault();
         await this.getMeasurements();
         this.calculateIdealBW();
-    }
+    };
 
     getMeasurements() {
         const weightType = document.querySelector('#weightSelector').value;
         const heightType = document.querySelector('#heightSelector').value;
 
-        const { weight, height } = this.state
+        const { weight, height } = this.state;
 
         if (weightType === 'lb') {
             this.setState({
                 weight: weight / 2.2,
                 metricUnit: true
-            })
+            });
         }
         if (heightType === 'in') {
-            this.setState({ height: height * 2.54 })
+            this.setState({ height: height * 2.54 });
         }
-    }
+    };
 
     calculateIdealBW = async () => {
         const response = await fitScaleApi.get('/ibw', {
@@ -65,44 +65,45 @@ class IdealBodyWeight extends Component {
             devine,
             hamwi,
             hasSubmitted: true
-        })
+        });
 
         this.displayIdealBW();
-    }
+    };
 
     restartToggle = () => {
-        const form = document.querySelector('.infoForms')
-        const results = document.querySelector('.results')
+        const form = document.querySelector('.infoForms');
+        const results = document.querySelector('.results');
         const weightType = document.querySelector('#weightSelector').value;
         const heightType = document.querySelector('#heightSelector').value;
 
-        const { weight, height } = this.state
+        const { weight, height } = this.state;
+
         if (weightType === 'lb') {
-            this.setState({ weight: weight * 2.2 })
+            this.setState({ weight: weight * 2.2 });
         }
         if (heightType === 'in') {
-            this.setState({ height: height / 2.54 })
+            this.setState({ height: height / 2.54 });
         }
 
         this.setState({
             metricUnit: false,
             hasSubmitted: false
-        })
+        });
 
         form.classList.toggle('hide')
         results.classList.toggle('show')
     }
 
     displayIdealBW = () => {
-        const form = document.querySelector('.infoForms')
-        const results = document.querySelector('.results')
+        const form = document.querySelector('.infoForms');
+        const results = document.querySelector('.results');
 
         if (this.state.hasSubmitted === false) {
             return null
         }
 
-        form.classList.toggle('hide')
-        results.classList.toggle('show')
+        form.classList.toggle('hide');
+        results.classList.toggle('show');
 
         if (this.state.metricUnit === true) {
             return (
@@ -116,7 +117,8 @@ class IdealBodyWeight extends Component {
                     <button className='activated' onClick={this.restartToggle}>Calculate Again</button>
                 </div>
             )
-        } else {
+        }
+        else {
             return (
                 <div>
                     <h1>Ideal Body Weight:</h1>
@@ -129,24 +131,25 @@ class IdealBodyWeight extends Component {
                 </div>
             )
         }
-
-    }
+    };
 
     render() {
         return (
             <div>
                 <div className='titleAndSummaries'>
                     <h3>Ideal Body Weight</h3>
-                    <p>Ideal body weight (IBW) is defined as weight for height at the lowest risk of mortality. This definition results from a century's research on the association between anatomical characteristics and health. Employing weight, height, and frame size, IBW is calculated via height-weight tables. The 4 most famous formulas to calculate ideal body weight are named after the creators: Robinson, Miller, Devine, and Hamwi. </p>
+                    <p>Ideal body weight (IBW) is defined as weight for height at the lowest risk of mortality.
+                        This definition results from a century's research on the association between anatomical characteristics and health.
+                        Employing weight, height, and frame size, IBW is calculated via height-weight tables.
+                        The 4 most famous formulas to calculate ideal body weight are named after the creators: Robinson, Miller, Devine, and Hamwi.
+                    </p>
                 </div>
 
                 <div className='infoForms'>
-
                     <form onSubmit={this.onFormSubmit}>
 
                         <h4>Weight</h4>
                         <div>
-
                             <input
                                 type='text'
                                 placeholder='Enter Weight'
@@ -185,7 +188,6 @@ class IdealBodyWeight extends Component {
 
                         <button type='submit' onSubmit={this.onFormSubmit}>Calculate</button>
                     </form>
-
                 </div>
 
                 <div className='results'>
@@ -194,7 +196,7 @@ class IdealBodyWeight extends Component {
 
             </div>
         )
-    }
-}
+    };
+};
 
 export default IdealBodyWeight;

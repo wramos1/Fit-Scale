@@ -45,7 +45,7 @@ class TDEE extends Component {
         const weightType = document.querySelector('#weightSelector').value;
         const heightType = document.querySelector('#heightSelector').value;
 
-        const { weight, height } = this.state
+        const { weight, height } = this.state;
 
         if (weightType === 'lb') {
             this.setState({ weight: weight / 2.2 });
@@ -79,7 +79,7 @@ class TDEE extends Component {
         const weightType = document.querySelector('#weightSelector').value;
         const heightType = document.querySelector('#heightSelector').value;
 
-        const { weight, height } = this.state
+        const { weight, height } = this.state;
 
         if (weightType === 'lb') {
             this.setState({ weight: weight * 2.2 });

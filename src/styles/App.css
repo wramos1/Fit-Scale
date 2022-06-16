@@ -21,8 +21,7 @@ body {
     letter-spacing: 25px;
     font-weight: 50;
     font-family: 'Contrail One', cursive;
-    margin: 0;
-    margin-top: 1%;
+    margin: 2% 0;
 }
 
 #subTitle {
@@ -61,8 +60,7 @@ h4 {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-right: 35%;
-    margin-left: 35%;
+    margin: 0 35%;
 }
 
 #scaleContent {
@@ -72,6 +70,14 @@ h4 {
     margin: 0 auto;
     height: auto;
     padding: 0 0 5% 0;
+}
+
+#scaleContent>div:first-of-type {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
 }
 
 .titleAndSummaries {
@@ -99,7 +105,9 @@ h4 {
     display: flex;
     align-content: space-between;
     flex-direction: column;
+    justify-content: space-evenly;
     text-align: center;
+    height: inherit;
 }
 
 .infoForms div {
@@ -148,6 +156,7 @@ select:focus {
     margin: 0 auto;
     color: aqua;
     margin-top: -5px;
+    height: inherit;
 }
 
 .results h1 {
@@ -210,20 +219,208 @@ button {
 }
 
 @keyframes activated {
-    0% {
-        letter-spacing: normal;
-    }
-
     50% {
         transform: skew(-5deg);
-        letter-spacing: 2px;
-        padding: 6px 9px;
-        font-size: 1.15em;
+        letter-spacing: 1.5px;
+        transform: scale(1.2);
+    }
+}
+
+
+@media (min-width: 2000px) {
+    #title {
+        font-size: 3em;
     }
 
-    100% {
-        padding: 5px 8px;
-        border-radius: 15px;
-        font-size: 1.1em;
+    #scaleContent {
+        height: fit-content;
+    }
+
+    .titleAndSummaries h3 {
+        font-size: 1.6vmax;
+    }
+
+    .titleAndSummaries p {
+        font-size: 1vmax;
+    }
+
+    h4 {
+        font-size: 1.2vmax;
+    }
+}
+
+@media (max-width: 1900px) {
+    #title {
+        font-size: 2.8em;
+    }
+
+    .titleAndSummaries p {
+        font-size: 1.25vmax;
+    }
+
+    #scaleContent {
+        height: 750px;
+    }
+
+    h4 {
+        font-size: 2vh;
+    }
+
+    .infoForms button,
+    input,
+    select {
+        font-size: 1vmax;
+    }
+
+    .titleAndSummaries h3 {
+        font-size: 2.1vmax;
+    }
+
+}
+
+
+@media (max-width: 1150px) {
+    .titleAndSummaries p {
+        font-size: 1.4vmax;
+    }
+
+    #subTitle {
+        font-size: 2.5vmax;
+    }
+
+    #tdeeCaloricMeasures {
+        flex-direction: column;
+    }
+
+    #mainContent {
+        margin: 0 30%;
+    }
+
+    .infoForms button,
+    input,
+    select {
+        font-size: 1.2vmax;
+    }
+
+    h4 {
+        font-size: 2.1vmax;
+    }
+
+    .titleAndSummaries h3 {
+        font-size: 3vmax;
+    }
+}
+
+@media (max-width: 900px) {
+    .titleAndSummaries p {
+        font-size: 1.6vmax;
+    }
+
+    #subTitle {
+        letter-spacing: 1.9vmax;
+    }
+
+    #mainContent {
+        margin: 0 25%;
+    }
+}
+
+@media (max-width: 800px) {
+    .titleAndSummaries h3 {
+        font-size: 2.7vmax;
+    }
+
+    #scaleContent>div:first-of-type {
+        justify-content: flex-start;
+    }
+
+    .infoForms {
+        height: initial;
+    }
+
+}
+
+@media (max-width: 770px) {
+
+    #subTitle {
+        letter-spacing: 1.9vmax;
+    }
+
+}
+
+@media (max-width: 700px) {
+
+    .titleAndSummaries h3 {
+        font-size: 2.3vmax;
+    }
+
+    .titleAndSummaries p {
+        font-size: 1.5vmax;
+    }
+
+    #subTitle {
+        letter-spacing: 1.5vmax;
+    }
+
+    .infoForms button,
+    input,
+    select {
+        font-size: 1.4vmax;
+    }
+
+    #mainContent {
+        margin: 0 15%;
+    }
+}
+
+@media (max-width: 620px) {
+    .titleAndSummaries h3 {
+        font-size: 2vmax;
+    }
+
+    #subTitle {
+        letter-spacing: 1.1vmax;
+    }
+
+    #scaleContent {
+        height: 650px;
+    }
+}
+
+@media (max-width: 550px) {
+    .titleAndSummaries h3 {
+        font-size: 1.7vmax;
+    }
+
+    .titleAndSummaries p {
+        font-size: 1.2vmax;
+    }
+
+    h4 {
+        font-size: 1.85vmax;
+    }
+
+    #subTitle {
+        letter-spacing: 0.5vmax;
+    }
+}
+
+@media (max-width: 465px) {
+    #scaleContent {
+        height: 560px;
+    }
+
+    .results h1 {
+        font-size: 2.8vmax;
+    }
+}
+
+@media (max-width: 400px) {
+    #scaleContent {
+        height: fit-content;
+    }
+
+    #title {
+        font-size: 4vmax;
     }
 }

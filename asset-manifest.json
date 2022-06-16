@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/Fit-Scale/static/css/main.761b0236.css",
+    "main.css": "/Fit-Scale/static/css/main.2d600144.css",
     "main.js": "/Fit-Scale/static/js/main.490ec5f9.js",
     "index.html": "/Fit-Scale/index.html",
-    "main.761b0236.css.map": "/Fit-Scale/static/css/main.761b0236.css.map",
+    "main.2d600144.css.map": "/Fit-Scale/static/css/main.2d600144.css.map",
     "main.490ec5f9.js.map": "/Fit-Scale/static/js/main.490ec5f9.js.map"
   },
   "entrypoints": [
-    "static/css/main.761b0236.css",
+    "static/css/main.2d600144.css",
     "static/js/main.490ec5f9.js"
   ]
 }

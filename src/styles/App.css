@@ -193,6 +193,10 @@ select:focus {
     border-bottom: 2px solid yellow;
 }
 
+#tdeeCaloricMeasures p {
+    font-size: 0.9em;
+}
+
 .show {
     display: flex;
 }

@@ -112,7 +112,7 @@ class TDEE extends Component {
                 <div id='tdeeCaloricMeasures'>
                     <div>
 
-                        <h2>Caloric Surpus</h2>
+                        <h2>Caloric Surplus</h2>
                         <p>You would need to eat around {`${Math.ceil(this.state.tdee)}`} -
                             {`${Math.ceil(this.state.tdee) + 200} Calories`} to gain weight.
                         </p>
@@ -141,7 +141,7 @@ class TDEE extends Component {
             <div>
                 <div className='titleAndSummaries'>
                     <h3>Total Daily Energy Expenditure</h3>
-                    <p>TDEE is an estimate of how many calories you burn through your bodily functions and physical activity.
+                    <p>TDEE is an estimate of how many calories you burn through your bodily functions and physical activity in a day.
                         Calculating your TDEE not only gives you an idea of if you are moving around enough,
                         but it also could impact your weight management plans, too, because it creates an estimate of your current calorie burn.
                     </p>

@@ -113,8 +113,8 @@ class TDEE extends Component {
                     <div>
 
                         <h2>Caloric Surplus</h2>
-                        <p>You would need to eat around {`${Math.ceil(this.state.tdee)}`} to
-                            {`${Math.ceil(this.state.tdee) + 200} Calories`} to gain weight.
+                        <p>You would need to eat around {`${Math.ceil(this.state.tdee)}`}
+                            to {`${Math.ceil(this.state.tdee) + 200} Calories`} to gain weight.
                         </p>
 
                     </div>
@@ -122,8 +122,8 @@ class TDEE extends Component {
                     <div>
 
                         <h2>Caloric Deficit</h2>
-                        <p>You would need to eat around {`${Math.ceil(this.state.tdee) - 200}`} to
-                            {`${Math.ceil(this.state.tdee)} Calories`} to lose weight.
+                        <p>You would need to eat around {`${Math.ceil(this.state.tdee) - 200}`}
+                            to {`${Math.ceil(this.state.tdee)} Calories`} to lose weight.
                         </p>
 
                     </div>

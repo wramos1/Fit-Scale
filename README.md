@@ -1,5 +1,7 @@
 # Fit Scale
 
+Visit at: https://willyamramos.dev/Fit-Scale
+
 This project uses a Fitness Calculator API in order to fetch data related to a user's fitness needs. Users can easily navigate between all tabs due to the app using dynamic routing with react-router-dom.
 
 The project focuses on the most popular forms of data every fitness enthusiast is bound to look for during their fitness endeavors.
